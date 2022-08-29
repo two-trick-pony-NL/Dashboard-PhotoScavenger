@@ -20,10 +20,11 @@ TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
+last_deployments = d['timestamp'].iat[0]
 
 
 st.set_page_config(
-    page_title="Real-Time Data Science Dashboard",
+    page_title="Photo Scavenger Dashboard",
     page_icon="📊",
     layout="wide",
 )
@@ -33,7 +34,7 @@ st.title("Photo Scavenger API Dashboard")
 
 
 # create three columns
-kpi1, kpi2, kpi3 = st.columns(3)
+kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 
 # fill in those three columns with respective metrics or KPIs
 kpi1.metric(
@@ -49,6 +50,10 @@ kpi2.metric(
 kpi3.metric(
     label="Last time updated ⏱",
     value=last_value,
+)
+kpi4.metric(
+    label="Last deployment 🤖",
+    value=last_deployments,
 )
 
 
