@@ -20,8 +20,12 @@ TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
-#last_deployments = d['timestamp'].iat[1]
-last_deployment = 'hello'
+last_deployments = d['timestamp'].iat[1]
+
+deltaUpload = 10
+deltaAssignment = 20
+
+
 
 
 st.set_page_config(
@@ -41,11 +45,13 @@ kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 kpi1.metric(
     label="Total pictures analysed 🧐",
     value=round(TotalUploaded),
+    delta=deltaUpload,
 )
 
 kpi2.metric(
     label="Total Assignments served 🎲",
     value=int(TotalAssignment),
+    delta=deltaAssignment,
 )
 
 kpi3.metric(
