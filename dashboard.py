@@ -59,12 +59,13 @@ st.markdown('Photo Scavenger is a object detection game available as [iOS App](h
 st.markdown('You can upload pictures to the V1 or V2 upload enpoints, and an AI will detect what objects are in them. Currently the API is working with YoloV5 in the V2 version of the API. This can return 80 objects ')
 if st.checkbox('Show Example response and objects'):
     st.text("person bicycle car motorcycle airplane bus train truck boat traffic light fire hydrant stop sign parking meter bench bird cat dog horse sheep cow elephant bear zebra giraffe backpack umbrella handbag tie suitcase frisbee skis snowboard sports ball kite baseball bat baseball glove skateboard surfboard tennis racket bottle wine glass cup fork knife spoon bowl banana apple sandwich orange broccoli carrot hot dog pizza donut cake chair couch potted plant bed dining table toilet tv laptop mouse remote keyboard cell phone microwave oven toaster sink refrigerator book clock vase scissors teddy bear hair drier toothbrush")
-    st.code({"Searchedfor:":"boat",
-"Wasfound":"NO",
-"OtherObjectsDetected":["person","person","person","person","bicycle","motorbike","bicycle","motorbike","bicycle"],
-"Processed_FileName":"scanned_image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",
-"file_url":"image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",
-})
+    st.code("""
+    {"Searchedfor:":"boat",\n
+"Wasfound":"NO",\n
+"OtherObjectsDetected":["person","person","person","person","bicycle","motorbike","bicycle","motorbike","bicycle"],\n
+"Processed_FileName":"scanned_image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
+"file_url":"image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
+}""")
 
 
 
