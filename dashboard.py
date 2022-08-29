@@ -51,8 +51,6 @@ kpi2.metric(
 kpi3.metric(
     label="Last time updated ⏱",
     value=last_value,
-    label="Last deployment 🤖",
-    value=last_deployments,
 )
 kpi4.metric(
     label="Last deployment 🤖",
