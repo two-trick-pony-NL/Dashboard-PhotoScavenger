@@ -58,7 +58,8 @@ st.subheader('Summary and usage')
 st.markdown('Photo Scavenger is a object detection game available as [iOS App](https://two-trick-pony-nl.github.io/PhotoScavenger/), where you earn points by taking photos of objects around your house. The Photo Scavenger API has a handfull of endpoints that can be used to detect objects in pictures. Check out [GitHub](https://github.com/two-trick-pony-NL/PhotoScavengerBackend) on how to use the API. Or check out the [Swagger](https://photoscavenger.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/docs) documentation')
 st.markdown('You can upload pictures to the V1 or V2 upload enpoints, and an AI will detect what objects are in them. Currently the API is working with YoloV5 in the V2 version of the API. This can return 80 objects ')
 if st.checkbox('Show Example response and objects'):
-    st.subheader("These objects can be detected:")
+    st.subheader("Available objects")
+    st.text("These objects can be detected by the YoloV5 model")
     st.text("person bicycle car motorcycle airplane bus train truck boat traffic light fire hydrant stop sign parking meter bench bird cat dog horse sheep cow elephant bear zebra giraffe backpack umbrella handbag tie suitcase frisbee skis snowboard sports ball kite baseball bat baseball glove skateboard surfboard tennis racket bottle wine glass cup fork knife spoon bowl banana apple sandwich orange broccoli carrot hot dog pizza donut cake chair couch potted plant bed dining table toilet tv laptop mouse remote keyboard cell phone microwave oven toaster sink refrigerator book clock vase scissors teddy bear hair drier toothbrush")
     st.subheader("Here are 2 example API responses")
     st.text("1. Call  /v2/newassignment/200	to get a new object to find")
@@ -66,11 +67,11 @@ if st.checkbox('Show Example response and objects'):
     st.text("2. Call /v2/uploadfile/boat to see if a boat is in the picture. It will return:")
     st.code("""
         {
-            "Searchedfor:":"boat",\n
-            "Wasfound":"NO",\n
-            "OtherObjectsDetected":["person","person","person","person","bicycle","motorbike","bicycle","motorbike","bicycle"],\n
-            "Processed_FileName":"scanned_image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
-            "file_url":"image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
+        "Searchedfor:":"boat",\n
+        "Wasfound":"NO",\n
+        "OtherObjectsDetected":["person","person","person","person","bicycle","motorbike","bicycle","motorbike","bicycle"],\n
+        "Processed_FileName":"scanned_image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
+        "file_url":"image54e46fb8-93f8-43ad-a8ec-99eb83f260af.jpg",\n
         }""")
 
 
