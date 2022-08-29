@@ -53,8 +53,7 @@ if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(d)
 st.subheader('Summary and usage')
-st.markdown('Photo Scavenger is a object detection game available as[iOS App](https://two-trick-pony-nl.github.io/PhotoScavenger/), where you earn points by taking photos of objects around your house.')
-st.markdown('The Photo Scavenger API has a handfull of endpoints that can be used to detect objects in pictures. Check out [GitHub](https://github.com/two-trick-pony-NL/PhotoScavengerBackend) on how to use the API. Or check out the [Swagger](https://photoscavenger.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/docs) documentation')
+st.markdown('Photo Scavenger is a object detection game available as [iOS App](https://two-trick-pony-nl.github.io/PhotoScavenger/), where you earn points by taking photos of objects around your house. The Photo Scavenger API has a handfull of endpoints that can be used to detect objects in pictures. Check out [GitHub](https://github.com/two-trick-pony-NL/PhotoScavengerBackend) on how to use the API. Or check out the [Swagger](https://photoscavenger.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/docs) documentation')
 
 
 
