@@ -28,7 +28,7 @@ st.set_page_config(
 )
 
 st.title("Photo Scavenger API Dashboard")
-st.image('https://user-images.githubusercontent.com/71013416/183674037-eca7cc9b-4a19-494c-a449-af638fdd869c.png')
+st.image('https://user-images.githubusercontent.com/71013416/183674037-eca7cc9b-4a19-494c-a449-af638fdd869c.png', width=200)
 
 # create three columns
 kpi1, kpi2, kpi3 = st.columns(3)
