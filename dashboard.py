@@ -29,6 +29,7 @@ st.set_page_config(
 
 st.title("Photo Scavenger API Dashboard")
 
+
 # create three columns
 kpi1, kpi2, kpi3 = st.columns(3)
 
@@ -56,6 +57,12 @@ st.subheader('Calls over time Combined')
 st.bar_chart(d, x='timestamp', y=None)
 
 
+st.subheader('Summary')
+st.text('Photo Scavenger is a object detection game available as[iOS App](https://two-trick-pony-nl.github.io/PhotoScavenger/), where you earn points by taking photos of objects around your house.')
+st.subheader('API Usage')
+st.text('The Photo Scavenger API has a handfull of endpoints that can be used to detect objects in pictures. Check out [GitHub](https://github.com/two-trick-pony-NL/PhotoScavengerBackend) on how to use the API')
+
+
 
 # create two columns for charts
 fig_col1, fig_col2 = st.columns(2)
@@ -72,3 +79,6 @@ with fig_col2:
     st.bar_chart(d, x='timestamp', y=['Homepage', 'ExampleResponse'])
     st.subheader('Healthchecks by AWS')
     st.bar_chart(d, x='timestamp', y='Healthcheck by AWS')
+
+
+st.text('Photo Scavenger is made with <3 by Peter van Doorn')
