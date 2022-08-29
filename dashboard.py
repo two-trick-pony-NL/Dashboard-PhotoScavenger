@@ -20,7 +20,7 @@ TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
-last_deployments = d['timestamp'].iat[1]
+#last_deployments = d['timestamp'].iat[1]
 
 
 st.set_page_config(
@@ -50,6 +50,8 @@ kpi2.metric(
 kpi3.metric(
     label="Last time updated ⏱",
     value=last_value,
+    label="Last deployment 🤖",
+    value=last_deployments,
 )
 kpi4.metric(
     label="Last deployment 🤖",
