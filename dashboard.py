@@ -20,7 +20,7 @@ TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
-last_deployments = d['timestamp'].iat[0]
+last_deployments = d['timestamp'].iat[1]
 
 
 st.set_page_config(
