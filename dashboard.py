@@ -21,6 +21,7 @@ TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
 #last_deployments = d['timestamp'].iat[1]
+last_deployment = 'hello'
 
 
 st.set_page_config(
