@@ -60,7 +60,7 @@ kpi3.metric(
 )
 kpi4.metric(
     label="Last deployment 🤖",
-    value=last_deployment,
+    value=last_deployments,
 )
 
 
