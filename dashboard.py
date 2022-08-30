@@ -20,7 +20,7 @@ TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 last_value = d['timestamp'].iat[-1]
-#last_deployments = d['timestamp'].iat[1]
+last_deployments = d['timestamp'].iat[1]
 
 deltaUpload = 10
 deltaAssignment = 20
@@ -61,7 +61,7 @@ kpi3.metric(
 
 kpi4.metric(
     label="Last deployment 🤖",
-    value=last_value,
+    value=last_deployments,
 )
 
 
