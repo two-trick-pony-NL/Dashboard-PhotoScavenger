@@ -47,24 +47,24 @@ kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 
 # fill in those three columns with respective metrics or KPIs
 kpi1.metric(
-    label="Total pictures analysed 🧐",
+    label="🧐 Total pictures analysed",
     value=round(TotalUploaded),
     delta=deltaUpload,
 )
 
 kpi2.metric(
-    label="Total Assignments served 🎲",
+    label="🎲 Total Assignments served ",
     value=int(TotalAssignment),
     delta=deltaAssignment,
 )
 
 kpi3.metric(
-    label="Last time updated ⏱",
+    label="✅ Last time updated (UTC)",
     value=last_updated,
 )
 
 kpi4.metric(
-    label="Last deployment 🤖",
+    label="🤖 Last deployment (UTC) ",
     value=last_deployments,
 )
 
