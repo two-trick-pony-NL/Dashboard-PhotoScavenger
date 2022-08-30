@@ -19,11 +19,15 @@ TotalV1Assignment = d['NewAssignmentV1'].sum()
 TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
-last_value = d['timestamp'].iat[-1]
+last_updated = d['timestamp'].iat[-1]
 last_deployments = d['timestamp'].iat[1]
+most_recent_V2_photo_Calls = d['uploadfileV2'].iat[-1]
+most_recent_V1_photo_Calls = d['uploadfileV1'].iat[-1]
+most_recent_V2_Assignment_Calls = d['NewAssignmentV2'].iat[-1]
+most_recent_V1_Assignment_Calls = d['NewAssignmentV1'].iat[-1]
 
-deltaUpload = 10
-deltaAssignment = 20
+deltaUpload = int(most_recent_V1_photo_Calls + most_recent_V2_photo_Calls )
+deltaAssignment = int(most_recent_V2_Assignment_Calls + most_recent_V1_Assignment_Calls )
 
 
 
@@ -56,7 +60,7 @@ kpi2.metric(
 
 kpi3.metric(
     label="Last time updated ⏱",
-    value=last_value,
+    value=last_updated,
 )
 
 kpi4.metric(
