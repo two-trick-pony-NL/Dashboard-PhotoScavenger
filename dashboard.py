@@ -15,6 +15,8 @@ TotalV1Uploaded = d['uploadfileV1'].sum()
 TotalV2Uploaded = d['uploadfileV2'].sum()
 TotalUploaded = TotalV1Uploaded + TotalV2Uploaded
 
+CorrectDetections = d['Detected'].sum()
+
 TotalV1Assignment = d['NewAssignmentV1'].sum()
 TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
@@ -59,13 +61,13 @@ kpi2.metric(
 )
 
 kpi3.metric(
-    label="✅ Last time updated (UTC)",
-    value=last_updated,
+    label="⚖️ Accurate detections",
+    value=round(CorrectDetections/TotalUploaded) +"%",
 )
 
 kpi4.metric(
-    label="🤖 Last deployment (UTC) ",
-    value=last_deployments,
+    label="✅ Last time updated (UTC)",
+    value=last_updated,
 )
 
 
@@ -108,6 +110,9 @@ with fig_col1:
     st.bar_chart(d, x='timestamp', y=['NewAssignmentV1', 'NewAssignmentV2'])
     st.subheader('Photos analysed')
     st.bar_chart(d, x='timestamp', y=['uploadfileV2', 'uploadfileV1'])
+    st.subheader('Object Detections')
+    st.bar_chart(d, x='timestamp', y=['Detected', 'NotDetected'])
+    
 
 with fig_col2:
     st.markdown("# Server")
@@ -118,6 +123,7 @@ with fig_col2:
 
 
 st.markdown('Photo Scavenger is made with <3 by Peter van Doorn')
+st.text('Last Deployment' + last_deployments)
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(d)
