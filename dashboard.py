@@ -1,4 +1,3 @@
-from cgitb import text
 import pandas as pd
 import requests
 import streamlit as st
