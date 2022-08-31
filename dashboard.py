@@ -14,19 +14,26 @@ TotalV1Uploaded = d['uploadfileV1'].sum()
 TotalV2Uploaded = d['uploadfileV2'].sum()
 TotalUploaded = TotalV1Uploaded + TotalV2Uploaded
 
-CorrectDetections = d['Detected'].sum()
+TotalCorrectDetection = d['Detected'].sum()
+TotalIncorrectDetection = d['NotDetected'].sum()
+PercentageCorrectDetections = round((TotalIncorrectDetection/TotalCorrectDetection)*100)
+
 
 TotalV1Assignment = d['NewAssignmentV1'].sum()
 TotalV2Assignment = d['NewAssignmentV2'].sum()
 TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
+
 last_updated = d['timestamp'].iat[-1]
 last_deployments = d['timestamp'].iat[1]
-most_recent_V2_photo_Calls = d['uploadfileV2'].iat[-1]
-most_recent_V1_photo_Calls = d['uploadfileV1'].iat[-1]
-most_recent_V2_Assignment_Calls = d['NewAssignmentV2'].iat[-1]
-most_recent_V1_Assignment_Calls = d['NewAssignmentV1'].iat[-1]
+most_recent_V2_photo_Calls = d['uploadfileV2'].iat[-0]
+most_recent_V1_photo_Calls = d['uploadfileV1'].iat[-0]
+most_recent_V2_Assignment_Calls = d['NewAssignmentV2'].iat[-0]
+most_recent_V1_Assignment_Calls = d['NewAssignmentV1'].iat[-0]
+most_recent_Detection = d['Detected'].iat[-0]
+most_recent_NotDetected = d['NotDetected'].iat[-0]
 
+deltaAccuracy = round((most_recent_NotDetected / most_recent_Detection) *100)
 deltaUpload = int(most_recent_V1_photo_Calls + most_recent_V2_photo_Calls )
 deltaAssignment = int(most_recent_V2_Assignment_Calls + most_recent_V1_Assignment_Calls )
 
@@ -41,6 +48,7 @@ st.set_page_config(
 
 st.image('https://user-images.githubusercontent.com/71013416/183674037-eca7cc9b-4a19-494c-a449-af638fdd869c.png', width=100)
 st.title("Photo Scavenger API Dashboard")
+st.text('📥 Last Deployment: ' + last_deployments +" (UTC)")
 
 
 # create three columns
@@ -60,8 +68,9 @@ kpi2.metric(
 )
 
 kpi3.metric(
-    label="⚖️ Accurate detections",
-    value=round(CorrectDetections/TotalUploaded) +"%",
+    label="⚖️ Detections Accuracy ",
+    value=str(PercentageCorrectDetections) +"%",
+    delta=str(deltaAccuracy) +"%",
 )
 
 kpi4.metric(
@@ -106,23 +115,27 @@ fig_col1, fig_col2 = st.columns(2)
 with fig_col1:
     st.markdown("# App Usage")
     st.subheader('Assignments served')
+    st.text("New assignments over time")
     st.bar_chart(d, x='timestamp', y=['NewAssignmentV1', 'NewAssignmentV2'])
     st.subheader('Photos analysed')
+    st.text("Photos uploaded over time")
     st.bar_chart(d, x='timestamp', y=['uploadfileV2', 'uploadfileV1'])
-    st.subheader('Object Detections')
+    st.subheader('Detection Accuracy')
+    st.text("The ratio where the object was detected vs not detected")
     st.bar_chart(d, x='timestamp', y=['Detected', 'NotDetected'])
     
 
 with fig_col2:
     st.markdown("# Server")
     st.subheader('Homepage')
+    st.text("Calls to homepage over time")
     st.bar_chart(d, x='timestamp', y=['Homepage', 'ExampleResponse'])
     st.subheader('Healthchecks by AWS')
+    st.text("Calls to check if server is still up by AWS")
     st.bar_chart(d, x='timestamp', y='Healthcheck by AWS')
 
 
 st.markdown('Photo Scavenger is made with <3 by Peter van Doorn')
-st.text('Last Deployment' + last_deployments)
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(d)
