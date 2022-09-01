@@ -30,8 +30,8 @@ most_recent_V2_photo_Calls = d['uploadfileV2'].iat[-1]
 most_recent_V1_photo_Calls = d['uploadfileV1'].iat[-1]
 most_recent_V2_Assignment_Calls = d['NewAssignmentV2'].iat[-1]
 most_recent_V1_Assignment_Calls = d['NewAssignmentV1'].iat[-1]
-most_recent_Detection = d['Detected'].iat[-0]
-most_recent_NotDetected = d['NotDetected'].iat[-0]
+most_recent_Detection = d['Detected'].iat[-1]
+most_recent_NotDetected = d['NotDetected'].iat[-1]
 
 deltaAccuracy = round((most_recent_NotDetected / most_recent_Detection) *100)
 deltaUpload = int(most_recent_V1_photo_Calls + most_recent_V2_photo_Calls )
