@@ -16,7 +16,7 @@ TotalUploaded = TotalV1Uploaded + TotalV2Uploaded
 
 TotalCorrectDetection = d['Detected'].sum()
 TotalIncorrectDetection = d['NotDetected'].sum()
-PercentageCorrectDetections = round((TotalIncorrectDetection/TotalCorrectDetection)*100)
+PercentageCorrectDetections = round(((TotalCorrectDetection/(TotalCorrectDetection+TotalIncorrectDetection)*100)))
 
 
 TotalV1Assignment = d['NewAssignmentV1'].sum()
