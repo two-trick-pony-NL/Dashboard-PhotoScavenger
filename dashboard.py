@@ -17,7 +17,7 @@ TotalUploaded = TotalV1Uploaded + TotalV2Uploaded
 TotalCorrectDetection = d['Detected'].sum()
 TotalIncorrectDetection = d['NotDetected'].sum()
 PercentageCorrectDetections = round(((TotalCorrectDetection/(TotalCorrectDetection+TotalIncorrectDetection)*100)))
-
+print(PercentageCorrectDetections)
 
 TotalV1Assignment = d['NewAssignmentV1'].sum()
 TotalV2Assignment = d['NewAssignmentV2'].sum()
@@ -56,26 +56,33 @@ kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 
 # fill in those three columns with respective metrics or KPIs
 kpi1.metric(
-    label="🧐 Total pictures analysed",
+    label="📸 Total pictures analysed",
     value=round(TotalUploaded),
-    delta=deltaUpload,
+    delta=str(deltaUpload)+" in last period",
+    help="Total number of images analysed since the last deployment",
 )
 
 kpi2.metric(
     label="🎲 Total Assignments served ",
     value=int(TotalAssignment),
-    delta=deltaAssignment,
+    delta=str(deltaAssignment)+" in last period ",
+    help="All assignments served since last deployment",
 )
 
 kpi3.metric(
     label="⚖️ Detections Accuracy ",
     value=str(PercentageCorrectDetections) +"%",
     delta=str(deltaAccuracy) +"%",
+    delta_color="off",
+    help="Times are in UTC",
 )
 
 kpi4.metric(
-    label="✅ Last time updated (UTC)",
+    label="✅ Last time updated",
     value=last_updated,
+    delta='Deployment: ' + last_deployments ,
+     delta_color="off",
+     help="Times are in UTC",
 )
 
 
@@ -90,7 +97,7 @@ if st.checkbox('Show Example response and objects'):
     st.text("1. Call  /v2/newassignment/200	to get a new object to find")
     st.code("""{"apple":"🍎"} \n""")
     st.text("* Make sure to add a integer as a score, as assignments get harder with higher scores")
-    st.text("2. Call /v2/uploadfile/boat to detect a boat in the picture. It will return:")
+    st.text("2. Make a POST request to /v2/uploadfile/boat to detect a boat in the picture with an image in the form data. This will return:")
     st.code("""
         {
         "Searchedfor:":"boat",\n
