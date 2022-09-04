@@ -14,8 +14,8 @@ TotalV1Uploaded = d['uploadfileV1'].sum()
 TotalV2Uploaded = d['uploadfileV2'].sum()
 TotalUploaded = TotalV1Uploaded + TotalV2Uploaded
 
-TotalCorrectDetection = d['Detected'].sum()
-TotalIncorrectDetection = d['NotDetected'].sum()
+TotalCorrectDetection = d['Detected'].sum() + 1
+TotalIncorrectDetection = d['NotDetected'].sum() +1
 PercentageCorrectDetections = round(((TotalCorrectDetection/(TotalCorrectDetection+TotalIncorrectDetection)*100)))
 print(PercentageCorrectDetections)
 
