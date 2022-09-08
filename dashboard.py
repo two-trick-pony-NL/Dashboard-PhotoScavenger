@@ -33,9 +33,20 @@ most_recent_V1_Assignment_Calls = d['NewAssignmentV1'].iat[-1]
 most_recent_Detection = d['Detected'].iat[-1]
 most_recent_NotDetected = d['NotDetected'].iat[-1]
 
-deltaAccuracy = round((most_recent_NotDetected +1 / most_recent_Detection +1) *100)
-deltaUpload = int(most_recent_V1_photo_Calls + most_recent_V2_photo_Calls )
-deltaAssignment = int(most_recent_V2_Assignment_Calls + most_recent_V1_Assignment_Calls )
+try:
+  deltaAccuracy = round((most_recent_NotDetected +1 / most_recent_Detection +1) *100)
+except:
+  deltaAccuracy = 0
+
+try:
+  deltaUpload = int(most_recent_V1_photo_Calls + most_recent_V2_photo_Calls )
+except:
+  deltaUpload = 0
+ 
+try:
+  deltaAssignment = int(most_recent_V2_Assignment_Calls + most_recent_V1_Assignment_Calls )
+except:
+  deltaAssignment = 0
 
 
 
