@@ -85,7 +85,7 @@ kpi3.metric(
     value=str(PercentageCorrectDetections) +"%",
     delta=str(deltaAccuracy) +"%",
     delta_color="off",
-    help="Times are in UTC",
+    help="This is the % of pictures uploaded where the AI found the requested object. It might be that some photos had the requested object that the AI did not detect. These are not counted.",
 )
 
 kpi4.metric(
