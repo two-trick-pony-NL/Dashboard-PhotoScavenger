@@ -25,7 +25,7 @@ TotalAssignment = TotalV1Assignment + TotalV2Assignment
 
 
 last_updated = d['timestamp'].iat[-1]
-last_deployments = d['timestamp'].iat[1]
+last_deployments = d['timestamp'].iat[0]
 most_recent_V2_photo_Calls = d['uploadfileV2'].iat[-1]
 most_recent_V1_photo_Calls = d['uploadfileV1'].iat[-1]
 most_recent_V2_Assignment_Calls = d['NewAssignmentV2'].iat[-1]
